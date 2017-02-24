@@ -1,0 +1,173 @@
+/* 
+Custom CSS for...
+'Modern Business' HTML Theme by Start Bootstrap
+
+All Start Bootstrap themes are licensed under Apache 2.0. 
+For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap.com!
+*/
+
+/* Global Styles */
+
+html, body {
+  height: 100%;
+}
+/*h1, .h1, h2, .h2, h3, .h3 {
+    margin-bottom: 20px !important;
+margin-top: 20px!important;}*/
+body {
+  //background-color:#ddd;
+  padding-top: 50px;
+ /* body padding for fixed top nav */
+}
+.navbar-inverse .navbar-nav > li > a{color:#ddd;}
+.navbar-inverse .navbar-brand{color:#ddd;}
+.custom{width:20%;}
+.border-top{ border-bottom:4px solid #666; width:30px; min-height:5px;}
+hr{width:100px; border-bottom:2px solid #666 }
+.width80{width: 80%;}
+.width50{width: 50%;}
+.img-home-portfolio,
+.img-customer,
+.portfolio-item {
+  margin-bottom: 30px;
+}
+.thumbnail{ transition: all 1s ease;}
+.thumbnail:hover{-webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);}
+.tab-pane {
+  margin-top: 15px;
+}
+.prof-img{ width:30%;}
+.prof-img2{width:40%;}
+.pro-desc{ width:66%; margin-top:-15px;}
+.p1{font-size:16px; margin-top:10px;}
+.p2{font-size:14px; margin-top:10px;}
+.view-h4{ width:40%;}
+.view-p{ width:55%; }
+
+/* Page Sections */
+
+.section-colored {
+  padding: 30px 0;
+}
+.section{ padding: 50px 0;}
+.section-colored {
+  background-color: #e1e1e1;
+ /* change this to change the background color of a colored section */
+}
+
+.sidebar {
+  margin-top: 40px;
+}
+
+.sidebar ul {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #cccccc;
+}
+
+/* Half Page Height Carousel Customization */
+.carousel {
+  height: 50%;
+}
+
+.item,
+.active,
+.carousel-inner {
+  height: 100%;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Social Icons Styles */
+.list-social-icons {
+  margin-bottom: 45px;
+}
+
+.tooltip-social a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.facebook-link a:hover {
+  color: #3b5998;
+}
+
+.linkedin-link a:hover {
+  color: #007fb1;
+}
+
+.twitter-link a:hover {
+  color: #39a9e0;
+}
+
+.google-plus-link a:hover {
+  color: #d14836;
+}
+
+/* Service Page Styles */
+.service-icon {
+  font-size: 50px;
+}
+
+/* 404 Page Styles */
+.error-404 {
+  font-size: 8em;
+}
+
+/* Pricing Page Styles */
+.price {
+  font-size: 4em;
+}
+
+.price-cents {
+  vertical-align: super;
+  font-size: 50%;
+}
+
+.price-month {
+  font-size: 35%;
+  font-style: italic;
+}
+
+/* Footer Styles */
+.footer {
+  margin-top: 20px;
+  background-color: #000;
+  width: 100%;
+  min-height: 20px;
+  padding: 20px;
+
+  
+}
+
+
+
+
+
+
+
+
+.footer p{ color:#ddd;}
+.marginbottom20{margin-bottom: 20px;}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+.prof-img{ width:100%;}
+.custom{ width:100%;}
+.prof-img2{width:100%;}
+.pro-desc{ width:100%; }
+  .width80{width: 100%;}
+  .width50{width: 100%;}
+  .carousel {
+    height: 70%;
+
+ /* increases the carousel height so it looks good on phones */
+  }
+}
