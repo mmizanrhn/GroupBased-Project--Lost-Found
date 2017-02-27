@@ -1,13 +1,20 @@
 ﻿<?php
 session_start();
-
+include_once('vendor/autoload.php');
+use LF\db\db;
+use LF\allclassfile\user;
 if(!isset($_SESSION['login']) AND empty($_SESSION['login'])){
+
     header("Location:index.php");
 }
 
-include_once("src/allinclude.php");
 
-$user = new user($DB_con);
+/*include_once("src/allinclude.php");*/
+// create Object of item Class
+
+$DB_con= db::connect();
+
+$user = new user(db::$DB_con);
 
 $user_profile = $user->profileData($_GET);
 

@@ -1,27 +1,29 @@
 <?php
 
+namespace LF\allclassfile;
 
 class user
 {
     private $db;
-
     function __construct($DB_con)
     {
         $this->db = $DB_con;
     }
 
-    function verificationCode($length = 10) {
+    function verificationCode($length = 10)
+    {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
+        for ($i = 0; $i < $length; $i++)
+        {
             $randomString .= $characters[rand(8, $charactersLength - 1)];
         }
         return $randomString;
     }
 
-function userRegistration($data){
-
+function userRegistration($data)
+{
 
     if(isset($data['submit']) && !empty($data['submit'])) {
         $errors =[];
@@ -32,7 +34,6 @@ function userRegistration($data){
 
             $errors[] = "Please Put Your Name";
         }
-
 
 
         if(!empty($data['user_email'])){
@@ -50,7 +51,6 @@ function userRegistration($data){
 
                 $user_email = htmlspecialchars($data['user_email']);
             }
-
 
         }else{
 
@@ -104,16 +104,13 @@ if($stmt->execute()) {
 }
                //
 
-            }catch (PDOException $e){
-
+            }catch (\PDOException $e){
                 $e->getMessage();
             }
-
 
         }else{
 
             return $errors;
-
         }
 
     }
@@ -121,8 +118,6 @@ if($stmt->execute()) {
 
 
     function signIn(){
-
-
 
         $error =[];
 
@@ -149,21 +144,15 @@ if($stmt->execute()) {
                 $stmt->bindParam(":user_pass", $user_pass);
                 $stmt->execute();
 
-
                 if ($stmt->rowCount() > 0) {
-                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
+                    $row = $stmt->fetch(\PDO::FETCH_ASSOC);
                     return $row;
-
                 } else {
                     $error[] = "SORRY... YOU ENTERD WRONG USEREMAIL AND PASSWORD... PLEASE RETRY...";
                 }
             }
-
-
             return $error;
         }
-
     }
 
 
@@ -181,14 +170,12 @@ if($stmt->execute()) {
         $user = [];
 
         if ($stmt->rowCount() > 0) {
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $row = $stmt->fetch(\PDO::FETCH_ASSOC);
             return $row;
         } else {
             return "No Data Available In User Table";
         }
-
     }
-
 
 
     function profileUpdate($data){
@@ -292,7 +279,7 @@ if($stmt->execute()) {
 
                     $stmt->execute();
                     return true;
-                }catch (PDOException $e){
+                }catch (\PDOException $e){
                     $e->getMessage();
                 }
 }

@@ -1,6 +1,13 @@
 <?php
-include_once("../allinclude.php");
-// create Object of item Class
+include_once('../../vendor/autoload.php');
+use LF\db\db;
+use LF\allclassfile\item;
+
+
+
+$DB_con= db::connect();
+var_dump($DB_con);
+
 $insert_item = new item($DB_con);
 
 $return= $insert_item->store($_POST);

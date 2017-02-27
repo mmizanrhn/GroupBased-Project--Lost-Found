@@ -1,9 +1,14 @@
 <?php
+include_once('vendor/autoload.php');
+use LF\db\db;
+use LF\allclassfile\user;
 
-include_once("src/allinclude.php");
+//include_once("src/allinclude.php");
 
+
+$DB_con= db::connect();
+//var_dump($DB_con);
 $user = new user($DB_con);
-
 $log = $user->signIn();
 
 if(isset($log['id'])AND !empty($log['id'])){

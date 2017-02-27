@@ -13,7 +13,7 @@
 namespace Composer\Autoload;
 
 /**
- * ClassLoader implements a PSR-0, PSR-4 and classmap classfile loader.
+ * ClassLoader implements a PSR-0, PSR-4 and classmap class loader.
  *
  *     $loader = new \Composer\Autoload\ClassLoader();
  *
@@ -27,13 +27,13 @@ namespace Composer\Autoload;
  *     // to enable searching the include path (eg. for PEAR packages)
  *     $loader->setUseIncludePath(true);
  *
- * In this example, if you try to use a classfile in the Symfony\Component
+ * In this example, if you try to use a class in the Symfony\Component
  * namespace or one of its children (Symfony\Component\Console for instance),
- * the autoloader will first look for the classfile under the component/
+ * the autoloader will first look for the class under the component/
  * directory, and it will then fallback to the framework/ directory if not
  * found before giving up.
  *
- * This classfile is loosely based on the Symfony UniversalClassLoader.
+ * This class is loosely based on the Symfony UniversalClassLoader.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Jordi Boggiano <j.boggiano@seld.be>
@@ -231,7 +231,7 @@ class ClassLoader
     }
 
     /**
-     * Turns on searching the include path for classfile files.
+     * Turns on searching the include path for class files.
      *
      * @param bool $useIncludePath
      */
@@ -253,7 +253,7 @@ class ClassLoader
 
     /**
      * Turns off searching the prefix and fallback directories for classes
-     * that have not been registered with the classfile map.
+     * that have not been registered with the class map.
      *
      * @param bool $classMapAuthoritative
      */
@@ -263,7 +263,7 @@ class ClassLoader
     }
 
     /**
-     * Should classfile lookup fail if not found in the current classfile map?
+     * Should class lookup fail if not found in the current class map?
      *
      * @return bool
      */
@@ -311,9 +311,9 @@ class ClassLoader
     }
 
     /**
-     * Loads the given classfile or interface.
+     * Loads the given class or interface.
      *
-     * @param  string    $class The name of the classfile
+     * @param  string    $class The name of the class
      * @return bool|null True if loaded, null otherwise
      */
     public function loadClass($class)
@@ -326,15 +326,15 @@ class ClassLoader
     }
 
     /**
-     * Finds the path to the file where the classfile is defined.
+     * Finds the path to the file where the class is defined.
      *
-     * @param string $class The name of the classfile
+     * @param string $class The name of the class
      *
      * @return string|false The path if found, false otherwise
      */
     public function findFile($class)
     {
-        // classfile map lookup
+        // class map lookup
         if (isset($this->classMap[$class])) {
             return $this->classMap[$class];
         }
@@ -360,7 +360,7 @@ class ClassLoader
         }
 
         if (false === $file) {
-            // Remember that this classfile does not exist.
+            // Remember that this class does not exist.
             $this->missingClasses[$class] = true;
         }
 
@@ -394,11 +394,11 @@ class ClassLoader
 
         // PSR-0 lookup
         if (false !== $pos = strrpos($class, '\\')) {
-            // namespaced classfile name
+            // namespaced class name
             $logicalPathPsr0 = substr($logicalPathPsr4, 0, $pos + 1)
                 . strtr(substr($logicalPathPsr4, $pos + 1), '_', DIRECTORY_SEPARATOR);
         } else {
-            // PEAR-like classfile name
+            // PEAR-like class name
             $logicalPathPsr0 = strtr($class, '_', DIRECTORY_SEPARATOR) . $ext;
         }
 

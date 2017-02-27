@@ -1,11 +1,14 @@
 ﻿<?php
 session_start();
-include_once("src/allinclude.php");
+include_once('vendor/autoload.php');
+use LF\db\db;
+use LF\allclassfile\item;
+/*include_once("src/allinclude.php");*/
 
 if(!isset($_SESSION['login']) AND empty($_SESSION['login'])){
     header("Location:index.php");
 }
-
+$DB_con= db::connect();
 // create Object of item Class
 $edit_item = new item($DB_con);
 

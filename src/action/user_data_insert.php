@@ -1,7 +1,13 @@
 <?php
-session_abort();
-include_once("../allinclude.php");
-// create Object of item Class
+include_once('../../vendor/autoload.php');
+use LF\db\db;
+use LF\allclassfile\user;
+
+
+
+$DB_con= db::connect();
+
+
 $user = new user($DB_con);
 
 $update= $user->profileUpdate($_POST);

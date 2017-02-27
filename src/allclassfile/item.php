@@ -1,4 +1,5 @@
 <?php
+namespace LF\allclassfile;
 
 class item
 {
@@ -110,7 +111,7 @@ try {
 
     $stmt->execute();
     return true;
-} catch (PDOException $e){
+} catch (\PDOException $e){
 
     $e->getMessage();
 }
@@ -133,7 +134,7 @@ try {
 
         if($stmt->rowCount()>0)
         {
-            while($row =$stmt->fetch(PDO::FETCH_ASSOC)){
+            while($row =$stmt->fetch(\PDO::FETCH_ASSOC)){
 
                 $items[] = $row;
             }
@@ -252,7 +253,7 @@ function updateItem($data){
 
                 $stmt->execute();
                 return true;
-            } catch (PDOException $e){
+            } catch (\PDOException $e){
 
                 $e->getMessage();
             }
@@ -277,14 +278,15 @@ function updateItem($data){
             $stmt = $this->db->prepare($query);
             $stmt->execute();
 
+
             if ($stmt->rowCount()>0) {
-                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
                 return $row;
 
 
             }
-        }catch (PDOException $e){
+        }catch (\PDOException $e){
 
             $e->getMessage();
         }
@@ -307,7 +309,7 @@ function updateItem($data){
 
 
             return true;
-        }catch (PDOException $e){
+        }catch (\PDOException $e){
 
             $e->getMessage();
         }

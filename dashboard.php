@@ -1,13 +1,18 @@
 ﻿<?php
 session_start();
+include_once('vendor/autoload.php');
+use LF\db\db;
+use LF\allclassfile\user;
+
+
+
 
 if(!isset($_SESSION['login']) AND empty($_SESSION['login'])){
 
    header("Location:index.php");
 
 }
-    include_once("src/allinclude.php");
-
+$DB_con= db::connect();
 $user = new user($DB_con);
 
 $user_profile = $user->profileData($_SESSION);

@@ -1,7 +1,16 @@
 <?php
+session_start();
+include_once('../../vendor/autoload.php');
+use LF\db\db;
+use LF\allclassfile\item;
 
-include_once("../allinclude.php");
-// create Object of item Class
+if(!isset($_SESSION['login']) AND empty($_SESSION['login'])){
+
+    header("Location:index.php");
+}
+
+
+$DB_con= db::connect();
 $item = new item($DB_con);
 //var_dump($_POST);
 $update= $item->updateItem($_POST);

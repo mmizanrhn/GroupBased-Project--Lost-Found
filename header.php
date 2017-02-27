@@ -40,7 +40,8 @@
                 <span class="icon-bar"></span>
             </button>
             <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-            <a class="navbar-brand" href="index.html">LOST & FOUND</a>
+<!--            <a class="navbar-brand" href="">LOST & FOUND</a>-->
+            <a class="navbar-brand" href=""><img src="images/logo2.png" width="160px" style="margin-top: -10px;"/></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

@@ -1,11 +1,16 @@
 ﻿<?php
 session_start();
+include_once('vendor/autoload.php');
+use LF\db\db;
+use LF\allclassfile\item;
+
 if(!isset($_SESSION['login']) AND empty($_SESSION['login'])){
 
     header("Location:index.php");
 }
-include_once("src/allinclude.php");
+/*include_once("src/allinclude.php");*/
 // create Object of item Class
+$DB_con= db::connect();
 $get_items = new item($DB_con);
 
 $items = $get_items->getAllItems($_SESSION['user_id']);

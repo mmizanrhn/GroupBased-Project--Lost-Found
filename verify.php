@@ -1,29 +1,28 @@
 <?php
 session_start();
-include_once("src/allinclude.php");
+include_once('vendor/autoload.php');
+use LF\db\db;
+use LF\allclassfile\user;
+use LF\allclassfile\verification;
 
+/*include_once("src/allinclude.php");*/
+$DB_con= db::connect();
 $user = new user($DB_con);
 
 $verifyCode = new verification($DB_con);
 
-
 if(isset($_POST['submit'])) {
 
     $reg = $user->userRegistration($_POST);
-
 }
-
-
 
 if(array_key_exists("verifyCode",$_GET)AND isset($_GET["verifyCod"])) {
     $activeCode = $_GET["verifyCode"];
-
 }
 
 if(array_key_exists("code",$_GET)AND isset($_GET["code"])) {
     $user_code = $_GET["code"];
 }
-
 
 include_once('header.php');
 

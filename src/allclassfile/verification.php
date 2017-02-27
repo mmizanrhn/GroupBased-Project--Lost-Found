@@ -1,11 +1,6 @@
 <?php
+namespace LF\allclassfile;
 
-/**
- * Created by PhpStorm.
- * User: user
- * Date: 21-Feb-17
- * Time: 11:04 PM
- */
 class verification
 {
 

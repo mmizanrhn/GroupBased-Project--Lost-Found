@@ -1,11 +1,14 @@
 <?php
-
-include_once("src/allinclude.php");
+include_once('vendor/autoload.php');
+use LF\db\db;
+use LF\allclassfile\search;
+/*include_once("src/allinclude.php");*/
 // create Object of item Class
+
+$DB_con= db::connect();
 $search = new search($DB_con);
 
 $result = $search->getSpecificKeyItem($_POST);
-
 
 
 include_once('header.php')
@@ -86,15 +89,16 @@ if(isset($_POST["submit"])){
 
         .modal-header {
             padding: 2px 16px;
-            background-color: #5cb85c;
-            color: white;
+           /*background-color: #ddd;*!*/
+            color: #666!important;
+            min-height: 40px;
         }
-
+.close{ color: #666}
         .modal-body {padding: 2px 16px;}
 
         .modal-footer {
             padding: 2px 16px;
-            background-color: #5cb85c;
+            /*background-color: #ddd;*/
             color: white;
         }
 
@@ -117,15 +121,23 @@ if(isset($_POST["submit"])){
             <div class="modal-body">
                 <div class="modal-content">
                     <div class="modal-header">
+
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Search Result !</h4>
-                    </div>
-                    <div class="print">
-                        <button type="button" class="btn btn btn-primary">Print PDF</button>
+
+                        <h4 class="modal-title pull-left">Search Result !</h4>
+                        <button onclick="printDiv('printArea')" class="btn btn btn-default btn-sm pull-left" style="margin-left:20px;">Print-1</button>
+                         <a href="pdf.php?search=<?=$result['item_key']?>" class="btn btn btn-default btn-sm pull-left" style="margin-left:20px;">Print-2</a>
                     </div>
 
-                    <div class="modal-body">
-                        <div class="panel-body">
+
+                    <div class="modal-body" >
+                        <div class="panel-body" id="printArea">
+                        <div class="print">
+
+
+
+
+                    </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <h5>Item Owner Name: </h5>
@@ -252,6 +264,31 @@ if(isset($_POST["submit"])){
 
 
         </div>
+
+
+
+        <script>
+
+
+        function printDiv(divName) {
+              var printContents = document.getElementById(divName).innerHTML;
+               var originalContents = document.body.innerHTML;
+               document.body.innerHTML = printContents;
+               window.print();
+               document.body.innerHTML = originalContents;
+
+               console.log('s');
+
+           }
+</script>
+
+
+
+
+
+
+
+
 
     </div>
 
